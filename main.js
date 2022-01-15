@@ -1,19 +1,20 @@
 // Create an object that simulates a bowling alley. In this object we will have to have a list with the players and their scores. We will have to add methods that allow us to: calculate the final score of each player, add new players, decide the winner. 
 
 let bowling = {
-
+// array with object players created with scores as empty value
     'players' : [
         {'name' : 'John' , 'scores' : []},
         {'name' : 'Jack' , 'scores' : []},
         {'name' : 'Lisa' , 'scores' : []},
     ],
-
+// addPlayer function created.this function pushes a new player with an empty value as score
     'addPlayer' : function(name){
 
         this.players.push({'name' : name , 'scores' : [] })
 
     },
-
+// setScores function for each elements is applied a loop that adds numbers randomly from 1 to ten, ten times. 
+//at the end pushes the result to the object players
     'setScores' : function(){
         this.players.forEach(el => {
 
@@ -23,7 +24,8 @@ let bowling = {
 
         })
     } ,
-
+// function setFinalScore : the variable mapped is assigned to the method .map() applied to the object players.
+//every element of the array gets substituted with the finalscore that reduces every score to one finalresult.
     'setFinalScore' : function(){
 
         let mapped = this.players.map( el =>{
@@ -36,7 +38,8 @@ let bowling = {
 
         this.players = mapped
     },
-
+// setWinner function: sorts the players from the highest score to the lowest score.
+// a condition at the end is applied that outputs if a player wins or the match ends in a draw
     'setWinner' : function(){
 
         this.players.sort( (a,b) => b.finalScore - a.finalScore  )
